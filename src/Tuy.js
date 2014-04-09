@@ -1,4 +1,4 @@
-var Tui = cc.Sprite.extend({
+var Tuy = cc.Sprite.extend({
     ctor: function(x, y, name) {
         this._super();
         this.initWithFile( 'res/images/'+ name +'.png' );

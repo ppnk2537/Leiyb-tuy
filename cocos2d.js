@@ -16,7 +16,8 @@
             'src/Tuy.js',
             'src/Strategy.js',
             'src/TuySet.js',
-            'src/Player.js'   //add your own files in order here
+            'src/Player.js',
+            'src/GamePlay.js'   //add your own files in order here
         ]
     };
 
