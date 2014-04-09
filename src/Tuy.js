@@ -9,7 +9,9 @@ var Tuy = cc.Sprite.extend({
         
         this.setPosition( this.x, this.y );
     },
+
     getName: function() {
     	return this.name;
     }
+
 });

@@ -5,34 +5,32 @@ var GameLayer = cc.LayerColor.extend({
 
         this.gamePlay = new GamePlay();
 
-        this.player1 = new Player('aun');
-        this.gamePlay.setPlayer1( this.player1 );
+        this.player = [];
 
-        this.player2 = new Player('aun');
-        this.gamePlay.setPlayer2( this.player2 );
+        this.tuy = [];
+
+        this.addPlayer( 'aun' , 0 );
+        this.addPlayer( 'meng' , 1 );
         
         this.gamePlay.startGame();
 
-        this.tuy1 = [];
-        this.tuy2 = [];
+        for ( var i = 0 ; i < 8 ; i++ ) {
+            this.tuy[i] = new Tuy( 80 * i  + 80 , 80 ,this.player[0].set[i] );
+            this.addChild( this.tuy[i] );
+        }
 
         for ( var i = 0 ; i < 8 ; i++ ) {
-            this.tuy1[i] = new Tuy( 80*i + 80 , 80 , this.player1.set[i]);
-            this.addChild(this.tuy1[i]);
+            this.tuy[i + 8] = new Tuy( 80 * i  + 80 , 400 ,this.player[1].set[i] );
+            this.addChild( this.tuy[i + 8] );
         }
-
-         for ( var i = 0 ; i < 8 ; i++ ) {
-            this.tuy2[i] = new Tuy( 80*i + 80 , 400 , this.player2.set[i]);
-            this.addChild(this.tuy2[i]);
-        }
-
-        console.log( this.player1.getSet() );
-        console.log( this.player2.getSet() );
-        console.log( this.gamePlay.set );
 
         return true;
     },
 
+    addPlayer: function( name , number ) {
+        this.player[number] = new Player( name );
+        this.gamePlay.setPlayer( this.player[number] );
+    }
     
 });
 

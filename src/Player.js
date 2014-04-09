@@ -3,6 +3,7 @@ function Player ( name ) {
 	this.set = [];
 	this.maxPiece = 8;
 	this.piece = 0;
+	this.tuy = [];
 }
 
 Player.prototype.add = function( name ) {
@@ -22,4 +23,8 @@ Player.prototype.remove = function( name ) {
 
 Player.prototype.getSet = function() {
 	return this.set;
+}
+
+Player.prototype.contain = function( name ) {
+	return this.set.indexOf( name ) > -1;
 }
