@@ -45,31 +45,21 @@ GamePlay.prototype.setPlayer = function( player ) {
 
 GamePlay.prototype.startGame = function() {
 
-    while ( this.rand.length < 16 ) {
+    while ( this.rand.length < 32 ) {
     	this.rand.push( Math.floor( Math.random() * 32 ) ); 
     	this.rand = this.rand.unique();
     } 
 
-    for ( var i = 0 ; i < 16 ; i ++ ) {
+    for ( var i = 0 ; i < 32 ; i ++ ) {
     	if ( i < 8 )
-    		this.player[0].add( this.set[this.rand[i]] );
+    		this.player[0].add( this.rand[i] );
+    	else if ( i < 16 )
+    		this.player[1].add( this.rand[i] );
+    	else if ( i < 24 )
+    		this.player[0].addNext( this.rand[i] );
     	else
-    		this.player[1].add( this.set[this.rand[i]] );
+    		this.player[1].addNext( this.rand[i] );
     	 
     }
-
-    var set = []
-    for ( var i = 0 ; i < 32 ; i++ ) {
-    	if ( this.rand.indexOf(i) < 0 ) {
-    		set.push(i);
-    	}
-    }
-
-    var dummy = []
-    for ( var i = 0 ; i < 16 ; i ++ ) {
-    	dummy.push( this.set[this.rand[i]] ); 
-    }
-
-    this.set = dummy;
 
 };

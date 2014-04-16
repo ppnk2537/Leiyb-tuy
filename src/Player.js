@@ -1,16 +1,16 @@
 function Player ( name ) {
 	this.name = name
 	this.set = [];
-	this.maxPiece = 8;
-	this.piece = 0;
+	this.next = [];
 	this.tuy = [];
 }
 
 Player.prototype.add = function( name ) {
-	if ( this.piece < this.maxPiece ) {
-		this.set.push(name);
-		this.piece += 1;	
-	}	
+	this.set.push(name);
+};
+
+Player.prototype.addNext = function( name ) {
+	this.next.push(name);
 };
 
 Player.prototype.remove = function( name ) {
@@ -18,7 +18,6 @@ Player.prototype.remove = function( name ) {
 	if (index > -1) {
     	this.set.splice(index, 1);
 	}
-	this.piece -= 1;
 }
 
 Player.prototype.getSet = function() {
