@@ -108,7 +108,7 @@ function check( arr1 , arr2 ) {
 		value2 = assignValue( arr2, one );
 	}
 
-	return value1 > value2;
+	return value1 >= value2;
 }
 
 function assignValue( arr, set ) {
