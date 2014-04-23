@@ -17,6 +17,16 @@ var Tuy = cc.Sprite.extend({
 
     setState: function( state ) {
         this.state = state;
+    },
+
+    updatePosition: function( x, y ) {
+        this.x = x;
+        this.y = y;
+        this.setPosition( cc.p ( x, y ) );
+    },
+
+    isClick: function( x, y ) {
+        return  Math.sqrt( ( x - this.x ) * ( x - this.x ) + ( y - this.y ) * ( y - this.y ) ) <= 30;
     }
 
 });

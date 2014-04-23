@@ -2,7 +2,8 @@ function Player ( name ) {
 	this.name = name
 	this.set = [];
 	this.next = [];
-	this.tuy = [];
+	this.temp = [];
+	this.choose = [];
 }
 
 Player.prototype.add = function( name ) {
@@ -12,6 +13,7 @@ Player.prototype.add = function( name ) {
 Player.prototype.addNext = function( name ) {
 	this.next.push(name);
 };
+
 
 Player.prototype.remove = function( name ) {
 	var index = this.set.indexOf(name);

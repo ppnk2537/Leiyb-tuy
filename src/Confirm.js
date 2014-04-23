@@ -12,6 +12,10 @@ var Confirm = cc.Sprite.extend({
 
     getName: function() {
     	return this.name;
+    },
+
+    isClick: function( x, y ) {
+        return  Math.abs( x - this.x ) <= 75 && Math.abs( y - this.y ) <= 30 ;
     }
 
 });

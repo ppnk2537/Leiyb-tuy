@@ -36,6 +36,8 @@ function GamePlay() {
 				 'tee_dang' ];
 
 	this.turn = 0;
+
+	this.state = GamePlay.STATE.PLAYER0;
 }
 
 GamePlay.prototype.setPlayer = function( player ) {
@@ -62,4 +64,10 @@ GamePlay.prototype.startGame = function() {
     	 
     }
 
+};
+
+GamePlay.STATE = {
+    PLAYER0 : 0,
+    PLAYER1 : 1,
+    CHECK : 2
 };
