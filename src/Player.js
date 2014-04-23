@@ -14,7 +14,6 @@ Player.prototype.addNext = function( name ) {
 	this.next.push(name);
 };
 
-
 Player.prototype.remove = function( name ) {
 	var index = this.set.indexOf(name);
 	if (index > -1) {

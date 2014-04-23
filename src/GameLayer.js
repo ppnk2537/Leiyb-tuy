@@ -67,17 +67,34 @@ var GameLayer = cc.LayerColor.extend({
 
         var loc = event.getLocation();
 
-        for ( var i = 0 ; i < 8 ; i++ ) {
-            if ( this.tuy[ this.player[0].set[i] ].isClick( loc.x , loc.y ) )
-               this.player[0].choose.push( this.player[0].set[i] );
+        if ( this.gamePlay.state == GamePlay.STATE.PLAYER0 ) {
+            for ( var i = 0 ; i < 8 ; i++ ) {
+                if ( this.tuy[ this.player[0].set[i] ].isClick( loc.x , loc.y ) ) {
+                    this.player[0].choose.push( this.player[0].set[i] );
+                    console.log( this.getTuys( this.player[0] ) );
+                }
+            }
+
+            if ( this.confirm0.isClick( loc.x, loc.y ) ) {
+                if ( isAvialable( this.getTuys( this.player[0] ) ) )
+                    this.gamePlay.state = GamePlay.STATE.PLAYER1;
+            }
         }
 
-        for ( var i = 0 ; i < 8 ; i++ ) {
-            if ( this.tuy[ this.player[1].set[i] ].isClick( loc.x , loc.y ) )
-                this.player[1].choose.push( this.player[1].set[i] );
-        }
+        if ( this.gamePlay.state == GamePlay.STATE.PLAYER1 ) {
+            for ( var i = 0 ; i < 8 ; i++ ) {
+                if ( this.tuy[ this.player[1].set[i] ].isClick( loc.x , loc.y ) ) {
+                    this.player[1].choose.push( this.player[1].set[i] );
+                    console.log( this.getTuys( this.player[0] ) );
+                }
+            }
 
-        console.log( this.confirm0.isClick( loc.x, loc.y ) );
+            if ( this.confirm1.isClick( loc.x, loc.y ) ) {
+                if ( isAvialable( this.getTuys( this.player[1] ) ) )
+                    var x = check( this.getTuys( this.player[0] ) , this.getTuys( this.player[1] ) );
+                    console.log( x );
+            }
+        }
     },
 
     getTuys:  function( player ) {
