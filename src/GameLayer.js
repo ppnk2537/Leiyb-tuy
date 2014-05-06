@@ -90,11 +90,6 @@ var GameLayer = cc.LayerColor.extend({
 
         var loc = event.getLocation();
 
-        if ( this.number1.isClick( loc.x, loc.y ) ) console.log( this.number1.getNum() );
-        else if ( this.number2.isClick( loc.x, loc.y ) ) console.log( this.number2.getNum() );
-        else if ( this.number3.isClick( loc.x, loc.y ) ) console.log( this.number3.getNum() );
-        else if ( this.number4.isClick( loc.x, loc.y ) ) console.log( this.number4.getNum() );
-
         if ( this.player[0].isLead ) {
             if ( this.gamePlay.state == GamePlay.STATE.PLAYER0 ) {
                 for ( var i = 0 ; i < this.player[0].set.length ; i++ ) {
