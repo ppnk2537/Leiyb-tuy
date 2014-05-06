@@ -2,7 +2,6 @@ function Player ( name , isLead ) {
 	this.name = name
 	this.set = [];
 	this.next = [];
-	this.temp = [];
 	this.choose = [];
 	this.isLead = isLead;
 }

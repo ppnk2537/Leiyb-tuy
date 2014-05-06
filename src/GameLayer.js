@@ -12,18 +12,6 @@ var GameLayer = cc.LayerColor.extend({
 
         this.addPlayer( 'aun' , 0 , true );
         this.addPlayer( 'meng' , 1 , false );
-        
-        this.number1 = new NumberButton( 1000 , 240 , 1 );
-        this.addChild( this.number1 );
-
-        this.number2 = new NumberButton( 1000 , 240 , 2 );
-        this.addChild( this.number2 );
-
-        this.number3 = new NumberButton( 1000 , 240 , 3 );
-        this.addChild( this.number3 );
-
-        this.number4 = new NumberButton( 1000 , 240 , 4 );
-        this.addChild( this.number4 );
 
         this.initTuy();
 
