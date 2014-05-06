@@ -15,10 +15,6 @@ var Tuy = cc.Sprite.extend({
     	return this.name;
     },
 
-    setState: function( state ) {
-        this.state = state;
-    },
-
     updatePosition: function( x, y ) {
         this.x = x;
         this.y = y;
@@ -30,10 +26,3 @@ var Tuy = cc.Sprite.extend({
     }
 
 });
-
-Tuy.STATE = {
-    PLAYER0 : 0,
-    PLAYER1 : 1,
-    NEXT0 : 2,
-    NEXT1 : 3
-};

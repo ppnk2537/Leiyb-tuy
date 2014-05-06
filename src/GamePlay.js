@@ -68,6 +68,5 @@ GamePlay.prototype.startGame = function() {
 
 GamePlay.STATE = {
     PLAYER0 : 0,
-    PLAYER1 : 1,
-    CHECK : 2
+    PLAYER1 : 1
 };

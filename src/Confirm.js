@@ -15,7 +15,9 @@ var Confirm = cc.Sprite.extend({
     },
 
     isClick: function( x, y ) {
-        return  Math.abs( x - this.x ) <= 75 && Math.abs( y - this.y ) <= 30 ;
+        if ( Math.abs( x - this.x ) <= 75 && Math.abs( y - this.y ) <= 30 )
+            console.log( 'confirm' );
+        return Math.abs( x - this.x ) <= 75 && Math.abs( y - this.y ) <= 30;
     }
 
 });

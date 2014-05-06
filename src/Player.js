@@ -1,9 +1,10 @@
-function Player ( name ) {
+function Player ( name , isLead ) {
 	this.name = name
 	this.set = [];
 	this.next = [];
 	this.temp = [];
 	this.choose = [];
+	this.isLead = isLead;
 }
 
 Player.prototype.add = function( name ) {

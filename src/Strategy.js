@@ -34,7 +34,7 @@ function isAvialable( arr ) {
 		// assign value if there are set of three.
 		juk = arr.unique();
 		if ( juk.length == 1 ) {
-			value1 = assignJukValue( juk );
+			value = assignJukValue( juk );
 		} else {
 			value = assignValue( arr, hu );
 		}
@@ -116,12 +116,13 @@ function assignValue( arr, set ) {
 		if ( equal( arr , set[i]) ) 
 			return i;
 	}
+	return 0;
 }
 
 function assignJukValue( juk ) {
-	if ( equal(juk, ['juk_dang']) ) return 2;
+	if ( equal(juk, ['juk_dang']) ) return 100;
 
-	if ( equal(juk, ['juk_dum']) ) return 1;
+	if ( equal(juk, ['juk_dum']) ) return 50;
 }
 
 function equal( a ,  b ) { return !( a < b || b < a); }
