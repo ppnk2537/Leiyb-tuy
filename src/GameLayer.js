@@ -97,13 +97,17 @@ var GameLayer = cc.LayerColor.extend({
             this.tuy[ this.player[1].set[i] ].reset();
         }
 
+		var j = 1;
         for ( var i = 0 ; i < this.player[0].next.length ; i++ ) {
-            this.tuy[ this.player[0].next[i] ].updatePosition( 40*i + 160 , 160 );
+			if ( i % 2 == 0 ) j += 1;
+            this.tuy[ this.player[0].next[i] ].updatePosition( 80*j , 160 );
             this.tuy[ this.player[0].next[i] ].reset();
         }
-
+	
+		j = 1;
         for ( var i = 0 ; i < this.player[1].next.length ; i++ ) {
-            this.tuy[ this.player[1].next[i] ].updatePosition( 40*i + 1240 , 160 );
+			if ( i % 2 == 0 ) j += 1;
+            this.tuy[ this.player[1].next[i] ].updatePosition( 80*j + 1080 , 160 );
             this.tuy[ this.player[1].next[i] ].reset();
         }
     },
@@ -354,8 +358,8 @@ var GameLayer = cc.LayerColor.extend({
                             this.player[0].remove( this.player[0].choose[i] );
                         }
 
-                        this.p1turn = cc.Sprite.create("res/images/player1s_turn.png");
-						this.p2turn = cc.Sprite.create("res/images/player1s_turn.png");
+                        this.p1turn = cc.Sprite.create("res/images/player2s_turn.png");
+						this.p2turn = cc.Sprite.create("res/images/player2s_turn.png");
 						
 						this.p1turn.setPosition( new cc.Point(540, 240));
 						this.p2turn.setPosition( new cc.Point(1620, 240));
