@@ -15,6 +15,7 @@ function isAvialable( arr ) {
 	} else if ( arr.length == 5 ) {
 		// assign value if there are set of five.
 		juk = arr.unique();
+		console.log( juk );
 		if ( juk.length == 1 ) {
 			value = assignJukValue( juk );
 
@@ -98,6 +99,8 @@ function check( arr1 , arr2 ) {
 			value1 = assignValue( arr1, hu );
 			value2 = assignValue( arr2, hu );
 		}
+		console.log( value1 );
+		console.log( value2 );
 	} else if ( arr1.length == 2 ) {
 		// assign value if there are set of two.
 		value1 = assignValue( arr1, tuy );
@@ -106,44 +109,47 @@ function check( arr1 , arr2 ) {
 		// assign value if there is one piece.
 		value1 = assignValue( arr1, one );
 		value2 = assignValue( arr2, one );
-	}
-
+	}   
+        
 	return value1 >= value2;
-}
-
+}       
+        
 function assignValue( arr, set ) {
 	for ( var i = 0 ; i < set.length ; i++ ) {
 		if ( equal( arr , set[i]) ) 
 			return i;
-	}
+	}   
 	return 0;
-}
-
+}       
+        
 function assignJukValue( juk ) {
 	if ( equal(juk, ['juk_dang']) ) return 100;
-
+        
 	if ( equal(juk, ['juk_dum']) ) return 50;
-}
-
+	
+	return 0;
+}       
+        
 function equal( a ,  b ) { return !( a < b || b < a); }
-
+        
 Array.prototype.unique = function() {
     var unique = [];
     for (var i = 0; i < this.length; i++) {
         if (unique.indexOf(this[i]) == -1) {
             unique.push(this[i]);
         }
-    }
+    }   
     return unique;
-};
-
+};      
+        
 Array.prototype.remove = function(name) {
 	var index = this.indexOf(name);
 	if (index > -1) {
     	this.splice(index, 1);
-	}
-}
-
+	}   
+}       
+        
 Array.prototype.removeIndex = function(position) {
 	this.splice(position,1);
-}
+}       
+        
