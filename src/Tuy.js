@@ -22,7 +22,15 @@ var Tuy = cc.Sprite.extend({
     },
 
     isClick: function( x, y ) {
-        return  Math.sqrt( ( x - this.x ) * ( x - this.x ) + ( y - this.y ) * ( y - this.y ) ) <= 30;
+        if ( Math.sqrt( ( x - this.x ) * ( x - this.x ) + ( y - this.y ) * ( y - this.y ) ) <= 30 ) {
+            this.initWithFile( 'res/images/'+ this.name +'_clicked.png' );
+
+        }
+        return Math.sqrt( ( x - this.x ) * ( x - this.x ) + ( y - this.y ) * ( y - this.y ) ) <= 30;
+    },
+
+    reset: function() {
+       this.initWithFile( 'res/images/'+ this.name +'.png' ); 
     }
 
 });
