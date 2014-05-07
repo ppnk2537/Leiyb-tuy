@@ -21,9 +21,15 @@ var GameLayer = cc.LayerColor.extend({
 
         this.confirm0 = new Confirm( 920 , 160 ,this.player[0] );
         this.addChild( this.confirm0 );
+		
+		this.clear0 = new Clear( 920 , 80 ,this.player[0] );
+        this.addChild( this.clear0 );
 
         this.confirm1 = new Confirm( 2000 , 160 ,this.player[1] );
         this.addChild( this.confirm1 );
+		
+		this.clear1 = new Clear( 2000 , 80 ,this.player[1] );
+        this.addChild( this.clear1 );
 
         this.p1turn = cc.Sprite.create("res/images/player1s_turn.png");
 		this.p2turn = cc.Sprite.create("res/images/player1s_turn.png");
@@ -82,12 +88,12 @@ var GameLayer = cc.LayerColor.extend({
         }
 
         for ( var i = 0 ; i < this.player[0].set.length ; i++ ) {
-            this.tuy[ this.player[0].set[i] ].updatePosition( 100*i + 160 , 80 );
+            this.tuy[ this.player[0].set[i] ].updatePosition( 80*i + 160 , 80 );
             this.tuy[ this.player[0].set[i] ].reset();
         }
 
         for ( var i = 0 ; i < this.player[1].set.length ; i++ ) {
-            this.tuy[ this.player[1].set[i] ].updatePosition( 100*i + 1240 , 80 );
+            this.tuy[ this.player[1].set[i] ].updatePosition( 80*i + 1240 , 80 );
             this.tuy[ this.player[1].set[i] ].reset();
         }
 
@@ -149,7 +155,14 @@ var GameLayer = cc.LayerColor.extend({
                     else
                         this.player[0].choose = [];
                 }
-
+				
+				if ( this.clear0.isClick( loc.x, loc.y ) ) {
+					for ( var i = 0 ; i < this.player[0].set.length ; i++ ) {
+						this.tuy[ this.player[0].set[i] ].reset();
+					}
+					this.player[0].choose = [];
+				}
+					
             }
 
             if ( this.gamePlay.state == GamePlay.STATE.PLAYER1 ) {
@@ -159,7 +172,14 @@ var GameLayer = cc.LayerColor.extend({
                         console.log( this.getTuys( this.player[1] ) );
                     }
                 }
-
+	
+				if ( this.clear1.isClick( loc.x, loc.y ) ) {
+					for ( var i = 0 ; i < this.player[1].set.length ; i++ ) {
+						this.tuy[ this.player[1].set[i] ].reset();
+					}
+					this.player[1].choose = [];
+				}
+				
                 if ( this.confirm1.isClick( loc.x, loc.y ) ) {
                     if ( this.player[0].choose.length != this.player[1].choose.length ) {
                         this.player[1].choose = [];
@@ -234,7 +254,7 @@ var GameLayer = cc.LayerColor.extend({
 
                 if ( this.confirm1.isClick( loc.x, loc.y ) ) {
                     if ( isAvialable( this.getTuys( this.player[1] ) ) ) {
-						var num = this.player[0].choose.length;
+						var num = this.player[1].choose.length;
 						this.number1 = cc.Sprite.create("res/images/number" + num + ".png");
 						this.number2 = cc.Sprite.create("res/images/number" + num + ".png");
 						
@@ -266,6 +286,13 @@ var GameLayer = cc.LayerColor.extend({
                     else
                         this.player[1].choose = [];
                 }
+				
+				if ( this.clear1.isClick( loc.x, loc.y ) ) {
+					for ( var i = 0 ; i < this.player[1].set.length ; i++ ) {
+						this.tuy[ this.player[1].set[i] ].reset();
+					}
+					this.player[1].choose = [];
+				}
             }
 
             if ( this.gamePlay.state == GamePlay.STATE.PLAYER0 ) {
@@ -275,7 +302,14 @@ var GameLayer = cc.LayerColor.extend({
                         console.log( this.getTuys( this.player[0] ) );
                     }
                 }
-
+				
+				if ( this.clear0.isClick( loc.x, loc.y ) ) {
+					for ( var i = 0 ; i < this.player[0].set.length ; i++ ) {
+						this.tuy[ this.player[0].set[i] ].reset();
+					}
+					this.player[0].choose = [];
+				}
+				
                 if ( this.confirm0.isClick( loc.x, loc.y ) ) {
                     if ( this.player[1].choose.length != this.player[0].choose.length ) {
                         this.player[0].choose = [];
