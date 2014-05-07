@@ -117,19 +117,34 @@ var GameLayer = cc.LayerColor.extend({
 
                 if ( this.confirm0.isClick( loc.x, loc.y ) ) {
                     if ( isAvialable( this.getTuys( this.player[0] ) ) ) {
-                        this.gamePlay.state = GamePlay.STATE.PLAYER1;
-
-                        this.p1turn = cc.Sprite.create("res/images/player2s_turn.png");
-						this.p2turn = cc.Sprite.create("res/images/player2s_turn.png");
+						var num = this.player[0].choose.length;
+						this.number1 = cc.Sprite.create("res/images/number" + num + ".png");
+						this.number2 = cc.Sprite.create("res/images/number" + num + ".png");
 						
-						this.p1turn.setPosition( new cc.Point(540, 240));
-						this.p2turn.setPosition( new cc.Point(1620, 240));
-						this.addChild( this.p1turn, 200 );
-						this.addChild( this.p2turn, 200 );
+						this.number1.setPosition( new cc.Point(540, 240));
+						this.number2.setPosition( new cc.Point(1620, 240));
+						this.addChild( this.number1, 200 );
+						this.addChild( this.number2, 200 );
 						this.scheduleOnce(function(){
-							this.removeChild(this.p1turn);
-							this.removeChild(this.p2turn);
+							this.removeChild(this.number1);
+							this.removeChild(this.number2);
 						},1)
+						
+						this.gamePlay.state = GamePlay.STATE.PLAYER1;
+	
+						this.scheduleOnce( function() {
+							this.p1turn = cc.Sprite.create("res/images/player2s_turn.png");
+							this.p2turn = cc.Sprite.create("res/images/player2s_turn.png");
+							
+							this.p1turn.setPosition( new cc.Point(540, 240));
+							this.p2turn.setPosition( new cc.Point(1620, 240));
+							this.addChild( this.p1turn, 200 );
+							this.addChild( this.p2turn, 200 );
+							this.scheduleOnce(function(){
+								this.removeChild(this.p1turn);
+								this.removeChild(this.p2turn);
+							},1)
+						},1);
                     }
                     else
                         this.player[0].choose = [];
@@ -219,19 +234,34 @@ var GameLayer = cc.LayerColor.extend({
 
                 if ( this.confirm1.isClick( loc.x, loc.y ) ) {
                     if ( isAvialable( this.getTuys( this.player[1] ) ) ) {
-                        this.gamePlay.state = GamePlay.STATE.PLAYER0;
-
-                        this.p1turn = cc.Sprite.create("res/images/player1s_turn.png");
-						this.p2turn = cc.Sprite.create("res/images/player1s_turn.png");
+						var num = this.player[0].choose.length;
+						this.number1 = cc.Sprite.create("res/images/number" + num + ".png");
+						this.number2 = cc.Sprite.create("res/images/number" + num + ".png");
 						
-						this.p1turn.setPosition( new cc.Point(540, 240));
-						this.p2turn.setPosition( new cc.Point(1620, 240));
-						this.addChild( this.p1turn, 200 );
-						this.addChild( this.p2turn, 200 );
+						this.number1.setPosition( new cc.Point(540, 240));
+						this.number2.setPosition( new cc.Point(1620, 240));
+						this.addChild( this.number1, 200 );
+						this.addChild( this.number2, 200 );
 						this.scheduleOnce(function(){
-							this.removeChild(this.p1turn);
-							this.removeChild(this.p2turn);
+							this.removeChild(this.number1);
+							this.removeChild(this.number2);
 						},1)
+						
+                        this.gamePlay.state = GamePlay.STATE.PLAYER0;
+	
+						this.scheduleOnce( function() {
+							this.p1turn = cc.Sprite.create("res/images/player1s_turn.png");
+							this.p2turn = cc.Sprite.create("res/images/player1s_turn.png");
+							
+							this.p1turn.setPosition( new cc.Point(540, 240));
+							this.p2turn.setPosition( new cc.Point(1620, 240));
+							this.addChild( this.p1turn, 200 );
+							this.addChild( this.p2turn, 200 );
+							this.scheduleOnce(function(){
+								this.removeChild(this.p1turn);
+								this.removeChild(this.p2turn);
+							},1)
+						},1);
                     }
                     else
                         this.player[1].choose = [];
