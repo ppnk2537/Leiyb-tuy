@@ -4,6 +4,10 @@ var GameLayer = cc.LayerColor.extend({
         this.setPosition( new cc.Point( 0, 0 ) );
         this.setMouseEnabled( true );
 
+        this.background = cc.Sprite.create("res/images/background.png");
+        this.background.setPosition( new cc.Point( 1080, 240 ) );
+        this.addChild( this.background );
+
         this.gamePlay = new GamePlay();
 
         this.player = [];
